@@ -1,0 +1,23 @@
+version: '3.8'
+
+name: mlops-services
+
+services:
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.Dockerfile
+    image: mlflow-server:v0.1
+    container_name: mlflow_server
+    ports:
+      - 5000:5000
+    #command: mlflow server --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${MLFLOW_DB} --default-artifact-root /mlflow/artifacts --host 0.0.0.0 
+    # Command to launch MLflow server pointing to a local storage for artifacts
+    command: >
+      mlflow server 
+      --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${MLFLOW_DB} 
+      --host 0.0.0.0 
+      --port 5000
+      --artifacts-destination /mlflow/artifacts
+      --serve-artifacts
+  
