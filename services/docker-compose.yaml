@@ -15,9 +15,9 @@ services:
     # Command to launch MLflow server pointing to a local storage for artifacts
     command: >
       mlflow server 
-      --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${MLFLOW_DB} 
+      --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASS}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB} 
       --host 0.0.0.0 
       --port 5000
-      --artifacts-destination /mlflow/artifacts
+      --artifacts-destination s3://jvaa-mlflow-artifacts
       --serve-artifacts
   
