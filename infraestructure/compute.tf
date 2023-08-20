@@ -28,6 +28,9 @@ resource "aws_instance" "mlops-platform" {
     DB_HOST = aws_db_instance.postgres.address
     DB_PORT = aws_security_group_rule.allow_pg_in.from_port
     DB_NAME = aws_db_instance.postgres.db_name
+    AWS_AKI = var.aws_access_key_id
+    AWS_SAK = var.aws_secret_access_key
+    AWS_REGION = var.aws_region
   }))
 }
 

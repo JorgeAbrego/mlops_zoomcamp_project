@@ -6,3 +6,4 @@ infraestructure/terraform.tfstate
 infraestructure/ec2_key_pair.pem
 terraform.tfstate
 infraestructure/.terraform.tfstate.lock.info
+infraestructure/aws_vars.tfvars

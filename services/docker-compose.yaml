@@ -11,6 +11,10 @@ services:
     container_name: mlflow_server
     env_file:
       - .env
+    environment:
+      - AWS_ACCESS_KEY_ID = ${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY = ${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION = ${AWS_DEFAULT_REGION}
     ports:
       - 5000:5000
     #command: mlflow server --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${MLFLOW_DB} --default-artifact-root /mlflow/artifacts --host 0.0.0.0 
