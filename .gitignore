@@ -8,3 +8,4 @@ terraform.tfstate
 infraestructure/.terraform.tfstate.lock.info
 infraestructure/aws_vars.tfvars
 services/.env
+notebooks/confusion-matrix.png

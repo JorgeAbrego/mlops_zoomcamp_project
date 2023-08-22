@@ -1,7 +1,7 @@
 # MLOps Zoomcamp Project - Telco Customer Churn
 Final project for MLops Zoomcamp cohort 2023
 
-![telco_churn.png](attachment:telco_churn.png)
+![Telco Churn](images/telco_churn.png)
 
 ## Objective
 
@@ -61,13 +61,53 @@ Target
 - Flask — Web API
 - dotenv — environment variable loader
 
-
 ## Pre-requisites
 
 AWS Account - Credentials loaded
 
 ## Infraestructure Provisioning
 
-Go to "infraestructure" folder, edit file *terraform.tfvars* with your AWS credentials and region, to replicate it.
+Go to "infraestructure" folder, edit file *terraform.tfvars* with your AWS credentials and region.
 
+![Terraform Vars](images/terraform_vars.PNG)
 
+Then run terraform apply
+
+> terraform apply
+
+When deployment finish, Terraform will return data about deployment, where you can find IP and DNS of the new EC2 instance:
+
+![Terraform Outputs](images/terraform_out.PNG)
+
+It also will create a Key Pair file to connect to EC2 instance:
+
+![Key Pair File](images/key_pair.PNG)
+
+Then, you can connect throught SSH using key pair file and EC2 IP/DNS
+
+![EC2 Connection](images/ssh_conn.PNG)
+
+Or, you can edit your .ssh/config file and add a new host:
+
+![SSH File](images/ssh_file.PNG)
+
+And connect VS Code to the instance:
+
+![VSCode Host](images/vscode_remote.PNG)
+
+When all experiments are finished, just destroy all deployments running:
+
+> terraform destroy
+
+## Further improvements
+
+- [ ] Add a monitoring service
+- [ ] Create a Frontend for the API
+- [x] Implement IaC
+- [ ] Use CI/CD
+- [x] Create tests
+
+## Disclaimer
+
+The prediction model was created solely with the purpose in create a MLOps pipeline
+and is not advisable to use the deployed model in real cases.
