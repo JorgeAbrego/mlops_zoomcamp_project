@@ -23,13 +23,13 @@ resource "aws_instance" "mlops-platform" {
   depends_on = [aws_security_group.default, aws_key_pair.ec2_key_pair]
 
   user_data = base64encode(templatefile("user_data.sh", {
-    DB_USER = aws_db_instance.postgres.username
-    DB_PASS = aws_db_instance.postgres.password
-    DB_HOST = aws_db_instance.postgres.address
-    DB_PORT = aws_security_group_rule.allow_pg_in.from_port
-    DB_NAME = aws_db_instance.postgres.db_name
-    AWS_AKI = var.aws_access_key_id
-    AWS_SAK = var.aws_secret_access_key
+    DB_USER    = aws_db_instance.postgres.username
+    DB_PASS    = aws_db_instance.postgres.password
+    DB_HOST    = aws_db_instance.postgres.address
+    DB_PORT    = aws_security_group_rule.allow_pg_in.from_port
+    DB_NAME    = aws_db_instance.postgres.db_name
+    AWS_AKI    = var.aws_aki
+    AWS_SAK    = var.aws_sak
     AWS_REGION = var.aws_region
   }))
 }

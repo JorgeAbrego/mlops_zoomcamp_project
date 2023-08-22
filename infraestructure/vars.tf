@@ -4,5 +4,5 @@ variable "main_vpc_cidr" {}
 variable "private_subnet_range_a" {}
 variable "private_subnet_range_b" {}
 variable "public_subnet_range_a" {}
-variable "aws_access_key_id" {}
-variable "aws_secret_access_key" {}
+variable "aws_aki" {}
+variable "aws_sak" {}

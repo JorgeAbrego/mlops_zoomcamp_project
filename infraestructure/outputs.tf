@@ -44,6 +44,10 @@ output "ec2_public_ipv4" {
   value = aws_instance.mlops-platform.public_ip
 }
 
+output "ec2_public_ipv4_dns" {
+  value = aws_instance.mlops-platform.public_dns
+}
+
 output "ec2_id" {
   value = aws_instance.mlops-platform.id
 }
