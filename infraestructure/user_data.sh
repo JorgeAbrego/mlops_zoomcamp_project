@@ -18,7 +18,6 @@ cd /home/ubuntu
 wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-x86_64.sh -O /home/ubuntu/miniconda.sh
 sudo bash /home/ubuntu/miniconda.sh -b -p /home/ubuntu/miniconda
 /home/ubuntu/miniconda/bin/conda init bash
-source ~/.bashrc
 
 # Create aws credential files
 sudo mkdir /home/ubuntu/.aws
@@ -26,7 +25,7 @@ sudo mkdir /home/ubuntu/.aws
 echo "[default]" | sudo tee /home/ubuntu/.aws/config
 echo "AWS_DEFAULT_REGION="${AWS_REGION} >> /home/ubuntu/.aws/config
 
-echo "[default]" | sudo tee credentials
+echo "[default]" | sudo tee /home/ubuntu/.aws/credentials
 echo "AWS_ACCESS_KEY_ID="${AWS_AKI} >> /home/ubuntu/.aws/credentials
 echo "AWS_SECRET_ACCESS_KEY="${AWS_SAK} >> /home/ubuntu/.aws/credentials
 
