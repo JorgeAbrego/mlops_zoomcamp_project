@@ -5,7 +5,9 @@ from flask import Flask, request, jsonify
 
 RUN_ID = "60980fc781d4480db329374e48dc7a24"
 
-logged_model = f'ss3://vld-test-mlflow/4/{RUN_ID}/artifacts/model'
+app = Flask('Telco Churn')
+
+logged_model = f's3://vld-test-mlflow/4/{RUN_ID}/artifacts/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
 @app.route('/predict', methods=['POST'])

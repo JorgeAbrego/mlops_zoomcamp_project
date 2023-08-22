@@ -22,6 +22,6 @@ customer = {
     'TotalCharges': 3320.75,
 }
 
-url = 'http://localhost:9696/predict'
+url = 'http://localhost:5000/predict'
 response = requests.post(url, json=customer)
 print(response.json())
